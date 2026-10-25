@@ -6,6 +6,7 @@ Seni ilgilendiren kanun, yönetmelik ve belediye kararlarını, yürürlük tari
 
 - Alan adı: halkbilsin.tr
 - İlkeler: [TARAFSIZLIK.md](TARAFSIZLIK.md)
+- Marka: [BRAND.md](BRAND.md)
 
 ## Bu sayfa nasıl çalışıyor
 
