@@ -277,6 +277,10 @@ class Uretim(unittest.TestCase):
         self.assertIn('aria-pressed="false"', s)
         self.assertIn('<li data-kimi="kiracı">', s)      # kayıt öğesi
         self.assertIn("Şu an 1 kayıt yayında", s)
+        # kart, dört tarihi de taşımalı
+        for alan in ("Kabul", "Resmî Gazete’de yayım", "Yürürlük", "Geçerlilik"):
+            self.assertIn(f"<dt>{alan}</dt>", s)
+        self.assertIn("Kimi ilgilendirebilir: kiracı", s)
         # ikinci çalıştırma aynı çıktıyı vermeli (determinizm)
         uret.uret(self.kok)
         self.assertEqual(s, (self.kok / "index.html").read_text(encoding="utf-8"))

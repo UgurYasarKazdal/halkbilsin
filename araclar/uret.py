@@ -367,11 +367,15 @@ def deneyin_govdesi(kayitlar):
     li = []
     for k in sirali:
         s = k["kaynak_durumu"]
+        tarihler = "\n".join(tarih_hucre(alan, k["tarihler"][alan]) for alan in TARIH_ALANLARI)
+        kimi = ", ".join(k.get("kimi", []))
         li.append(
             f'<li data-kimi="{E("|".join(k.get("kimi", [])))}">'
-            f'<h3><a href="/kayitlar/{E(k["slug"])}.html">{E(k["baslik"])}</a></h3>'
-            f'<p class="st"><span class="mk {s}" aria-hidden="true"></span>{E(DURUMLAR[s])}'
-            f'<span class="note"> · {E(rg_metin(k))}</span></p></li>')
+            f'<p class="st"><span class="mk {s}" aria-hidden="true"></span>{E(DURUMLAR[s])}</p>\n'
+            f'<h3><a href="/kayitlar/{E(k["slug"])}.html">{E(k["baslik"])}</a></h3>\n'
+            f'<dl class="dates">\n{tarihler}\n</dl>\n'
+            f'<p class="note">Kimi ilgilendirebilir: {E(kimi)} · '
+            f'<a href="/kayitlar/{E(k["slug"])}.html">Özet, kaynak ve ayrıntı</a></p></li>')
     n = len(sirali)
     return ('<h2 id="deneyin-baslik">Deneyin</h2>\n'
             '<p class="lead narrow">Durumunuzu seçin; kayıtlar ona göre süzülsün. '
