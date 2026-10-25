@@ -18,13 +18,14 @@ python3 -m http.server 8000
 # sonra tarayıcıda http://localhost:8000
 ```
 
-## Yayına alma (GitHub Pages)
+## Yayına alma (Cloudflare Pages)
 
-1. Depoyu GitHub’da oluştur (örn. `halkbilsin`), dosyaları `main` dalına gönder.
-2. Depoda **Settings → Pages**: *Source* = “Deploy from a branch”, branch = `main`, klasör = `/ (root)`.
-3. **Custom domain** alanına `halkbilsin.tr` yaz (depodaki `CNAME` dosyası da bunu söyler). *Enforce HTTPS* kutusunu, kullanılabilir olduğunda işaretle.
-4. Alan adı sağlayıcının DNS ekranında, GitHub’ın güncel belgesindeki kayıtları ekle (apex alan adı için A/AAAA kayıtları, varsa `www` için CNAME). Güncel IP değerleri için GitHub Pages belgesine bak; buraya yazmıyorum çünkü değişebilir.
-5. DNS yayılması birkaç dakikadan birkaç saate kadar sürebilir.
+1. Alan adının DNS'i Cloudflare'dedir (nameserver'lar Cloudflare'in verdiği ikiliye çevrilmiştir). Cloudflare panelinde alan adı "Active" olmalı.
+2. Cloudflare panelinde **Workers & Pages → Create → Pages → Connect to Git** ile bu depoyu seç.
+3. Build komutu boş, çıktı klasörü `/` (kök). Derleme adımı yoktur.
+4. İlk yayın `*.pages.dev` adresinde açılır. Sonra Pages projesinde **Custom domains** bölümüne `halkbilsin.tr` ekle; DNS kaydı ve HTTPS sertifikası Cloudflare tarafından kurulur.
+5. Her `main` dalına gönderimde site kendiliğinden güncellenir.
+6. İletişim için Cloudflare **Email Routing** ile alan adı adresi (örn. `iletisim@halkbilsin.tr`) açıp kendi e-postana yönlendirmek mümkündür.
 
 ## Yapılacaklar (yayımlamadan önce)
 
