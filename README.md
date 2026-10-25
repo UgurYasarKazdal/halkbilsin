@@ -30,7 +30,6 @@ python3 -m http.server 8000
 
 ## Yapılacaklar (yayımlamadan önce)
 
-- İletişim e-posta adresi eklenecekse sayfadaki “Fikrini söyle” bölümüne ekle.
 - Sayfadaki örnek kaydın (7596 sayılı Kanun) tarihleri 25 Ekim 2026 itibarıyla yazıldı; durum değiştiyse güncelle ya da kaldır.
 - Lisans seçimi: kod için bir lisans (örn. MIT veya AGPL) ve içerik için ayrı bir lisans kararı verilmeli; bu karar verilene kadar `LICENSE` dosyası yok.
 
