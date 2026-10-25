@@ -11,7 +11,7 @@ Seni ilgilendiren kanun, yönetmelik ve belediye kararlarını, yürürlük tari
 
 ## Bu sayfa nasıl çalışıyor
 
-Derleme adımı yok: `index.html` ve `style.css` doğrudan yayımlanır. Harici yazı tipi, izleme kodu ya da çerez kullanılmaz. (Barındırma şirketleri teknik olarak bağlantı kayıtları tutabilir.)
+Derleme adımı yok: HTML, CSS ve statik dosyalar doğrudan yayımlanır (`index.html`, `yontem.html`, `gizlilik.html`, `404.html`; `_headers` Cloudflare Pages güvenlik başlıklarını tanımlar). Harici yazı tipi, izleme kodu ya da çerez kullanılmaz. (Barındırma şirketleri teknik olarak bağlantı kayıtları tutabilir.)
 
 Yerelde görmek için bir klasör sunucusu yeterli:
 

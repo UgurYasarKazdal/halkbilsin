@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://halkbilsin.tr/sitemap.xml

@@ -100,3 +100,10 @@ p{margin:0 0 16px}
 .hero{padding-top:40px;padding-bottom:48px;gap:32px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.prose{padding-top:56px;padding-bottom:72px;max-width:760px}
+.prose h1{margin-bottom:16px}
+.prose h2{font-size:24px;margin:36px 0 12px}
+.prose ul{padding-left:22px;margin:0 0 16px}
+.prose li{margin-bottom:8px}
+.foot-in a{color:var(--accent)}
