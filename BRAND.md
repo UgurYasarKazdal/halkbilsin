@@ -44,6 +44,9 @@ Toprak ve grafit tonları seçildi; çünkü kırmızı, turuncu, mavi, turkuaz 
 ## Dosyalar
 `logo.svg` (açık zemin) · `logo-koyu.svg` (koyu zemin) · `favicon.svg`
 
+## Resmî hesaplar
+Instagram ve X: `halkbilsin`. E-posta: iletisim@halkbilsin.tr. Sayfada bu üçü dışında "resmî" denen kanal yoktur.
+
 ## Açık maddeler
 - TÜRKPATENT: 25 Ekim 2026'da "halkbilsin" için birebir sorguda kayıt çıkmadı (kullanıcı kontrolü). Benzer ve yakın sınıf markalar ile bekleyen başvurular kontrol edilmedi.
 - 15–20 kişiyle 5 saniyelik isim ve renk çağrışım testi.
