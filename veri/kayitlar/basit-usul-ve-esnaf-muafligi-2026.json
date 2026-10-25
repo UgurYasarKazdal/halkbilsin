@@ -1,0 +1,42 @@
+{
+  "slug": "basit-usul-ve-esnaf-muafligi-2026",
+  "baslik": "Esnaf için 2026 vergi hadleri: basit usul sınırları ve internette esnaf muaflığı (GV Genel Tebliği 332)",
+  "tur": "tebliğ",
+  "kurum": "Hazine ve Maliye Bakanlığı (Gelir İdaresi Başkanlığı)",
+  "kaynak_durumu": "tam",
+  "tarihler": {
+    "kabul": {
+      "tur": "bilinmiyor"
+    },
+    "rg_yayim": {
+      "tur": "tarih",
+      "tarih": "2025-12-31",
+      "sayi": "33124 (5. mükerrer)"
+    },
+    "yururluk": {
+      "tur": "tarih",
+      "tarih": "2026-01-01",
+      "madde": "7"
+    },
+    "gecerlilik": {
+      "tur": "yok"
+    }
+  },
+  "ozet": "Basit usulde vergilendirilmenin 2026 sınırları belirlendi: yıllık kira bedeli büyükşehir belediye sınırları içinde 99.000 TL'yi, diğer yerlerde 60.000 TL'yi aşamayacak; alım-satım ve hasılat hadleri bent bazında 600.000 TL ile 1.900.000 TL arasında güncellendi. İnternet üzerinden satışta esnaf muaflığının yıllık hasılat sınırı 1.900.000 TL oldu. Tutarlar 2026 takvim yılı için geçerli.",
+  "kimi": [
+    "esnaf"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "Resmî Gazete, 31 Aralık 2025, sayı 33124 (5. mükerrer)",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2025/12/20251231M5-30.pdf",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}
