@@ -118,8 +118,11 @@ p{margin:0 0 16px}
 .kayit-listesi p{margin:0}
 
 /* Deneyin: durum çipleriyle süzme */
-.chip.secim{font:inherit;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:999px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.chip.secim{font:inherit;font-size:0.9375rem;font-weight:600;padding:10px 18px;min-height:44px;border-radius:999px;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.chip.secim:hover{border-color:var(--accent)}
+.chip.secim::before{content:"+ ";color:var(--muted)}
 .chip.secim[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+.chip.secim[aria-pressed="true"]::before{content:"✓ ";color:inherit}
 .deneyin-liste li[hidden]{display:none}
 .deneyin-liste h3{margin:0 0 4px;font-size:1.05rem}
 .deneyin-liste h3 a{color:inherit}
