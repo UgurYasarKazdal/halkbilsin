@@ -31,7 +31,10 @@ python3 -m http.server 8000
 ## Yapılacaklar (yayımlamadan önce)
 
 - Sayfadaki örnek kaydın (7596 sayılı Kanun) tarihleri 25 Ekim 2026 itibarıyla yazıldı; durum değiştiyse güncelle ya da kaldır.
-- Lisans seçimi: kod için bir lisans (örn. MIT veya AGPL) ve içerik için ayrı bir lisans kararı verilmeli; bu karar verilene kadar `LICENSE` dosyası yok.
+
+## Lisans
+
+Kod ve sayfa: [MIT](LICENSE). Yazı tipleri kendi OFL lisanslarıyla gelir (`fonts/`). Kayıt içeriği (ileride eklenecek) için ayrı lisans kararı verilmedi.
 
 ## Katkı
 
