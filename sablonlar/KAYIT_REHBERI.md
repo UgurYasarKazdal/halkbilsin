@@ -1,6 +1,6 @@
 # Kayıt rehberi
 
-Her kayıt `kayitlar/<adi>.html` olarak, [kayit.html](kayit.html) şablonundan çoğaltılır. Yayından önce aşağıdaki kontrol listesi tamamlanır; tamamlanmayan kayıt yayımlanmaz.
+Kayıtlar artık elle HTML yazılarak değil, `veri/kayitlar/<slug>.json` olarak girilir; `python3 araclar/uret.py` sayfayı üretir ve kuralları makinece denetler ([veri/README.md](../veri/README.md)). [kayit.html](kayit.html) yalnızca görsel şablon örneğidir. Yayından önce aşağıdaki kontrol listesi tamamlanır; tamamlanmayan kayıt yayımlanmaz.
 
 ## Zorunlu alanlar
 1. **Kaynak durumu** (● okundu / ◐ ikincil / ○ doğrulanmadı) — başlığın üstünde, yazıyla birlikte.

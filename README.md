@@ -13,6 +13,8 @@ Seni ilgilendiren kanun, yönetmelik ve belediye kararlarını, yürürlük tari
 
 Derleme adımı yok: HTML, CSS ve statik dosyalar doğrudan yayımlanır (`index.html`, `yontem.html`, `gizlilik.html`, `404.html`; `_headers` Cloudflare Pages güvenlik başlıklarını tanımlar). Harici yazı tipi, izleme kodu ya da çerez kullanılmaz. (Barındırma şirketleri teknik olarak bağlantı kayıtları tutabilir.)
 
+Kayıt sayfaları, `veri/kayitlar/*.json` dosyalarından `python3 araclar/uret.py` ile üretilir ve üretilen HTML depoya girer (yayında derleme yok). Ayrıntı: [veri/README.md](veri/README.md).
+
 Yerelde görmek için bir klasör sunucusu yeterli:
 
 ```bash
