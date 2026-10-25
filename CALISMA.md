@@ -46,6 +46,8 @@ Model seçimi insan kontrolünün yerini tutmaz.
 - Ana sayfadaki kart elle yazılıdır; 7596 kaydı değişirse kartın da aynı commit'te güncellenmesi gerekir (drift riski).
 - İlk altı kaydın birincil okuması ve ikinci kontrolü, Uğur'un talimatıyla aynı oturumda Claude tarafından yapıldı; Uğur'un ara sıra rastgele bir kaydı RG'den kendisi doğrulaması önerilir.
 
+- Yerel smoke test CSP'yi görmez: `python3 -m http.server` `_headers` dosyasını uygulamaz. JS/stil eklenen her değişiklikte `_headers` elden geçirilecek; canlıda bir kez tıklanarak doğrulanacak.
+
 ## Açık maddeler [?]
 
 7596 sayılı Kanun'un Resmî Gazete durumu ve nihai metni · "çerez yok" ifadesinin barındırıcı tarafı · TÜRKPATENT benzer marka taraması · çağrışım testi · hesap bağlantılarının tıklama kontrolü · gizlilik metninin hukuki incelemesi · kayıt içeriği lisansı.
