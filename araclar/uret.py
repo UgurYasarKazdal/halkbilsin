@@ -306,7 +306,7 @@ def kayit_govdesi(k):
         out.append("<h2>Kimi ilgilendirebilir</h2>")
         out.append(f'<div class="chips">{chips}</div>')
         out.append('<p class="note">Süzme bir yardımcıdır, güvence değildir. '
-                   "İlgilendirmediğini düşünseniz de metne bakın.</p>")
+                   "Sizi ilgilendirmediğini düşünseniz bile metne bakın.</p>")
     out.append("<h2>Kısaca</h2>")
     out.append(f"<p>{E(k['ozet'])}</p>")
     if k["kaynak_durumu"] == "tam" and k.get("eylemler"):
@@ -345,7 +345,7 @@ def liste_govdesi(kayitlar):
     if not kayitlar:
         return ('<p class="eyebrow">Kayıtlar</p>\n<h1>Kayıtlar</h1>\n'
                 '<p class="lead narrow">Henüz yayımlanmış kayıt yok. İlk kayıt, resmî metin okunup '
-                "kontrol edildikten sonra burada yer alacak; hazır olmayanı vitrin gibi göstermiyoruz.</p>\n"
+                "kontrol edildikten sonra burada yayımlanacak; hazır olmayan içeriği göstermiyoruz.</p>\n"
                 '<p>Nasıl hazırlayacağımızı <a href="/yontem.html">Yöntem</a> sayfasında okuyabilirsiniz.</p>')
     li = []
     for k in kayitlar:
