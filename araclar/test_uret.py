@@ -281,6 +281,8 @@ class Uretim(unittest.TestCase):
         for alan in ("Kabul", "Resmî Gazete’de yayım", "Yürürlük", "Geçerlilik"):
             self.assertIn(f"<dt>{alan}</dt>", s)
         self.assertIn("Kimi ilgilendirebilir: kiracı", s)
+        self.assertIn("1 · Size uyanları işaretleyin", s)
+        self.assertIn('id="deneyin-bos"', s)
         # ikinci çalıştırma aynı çıktıyı vermeli (determinizm)
         uret.uret(self.kok)
         self.assertEqual(s, (self.kok / "index.html").read_text(encoding="utf-8"))

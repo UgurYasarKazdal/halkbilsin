@@ -378,9 +378,13 @@ def deneyin_govdesi(kayitlar):
             f'<a href="/kayitlar/{E(k["slug"])}.html">Özet, kaynak ve ayrıntı</a></p></li>')
     n = len(sirali)
     return ('<h2 id="deneyin-baslik">Deneyin</h2>\n'
-            '<p class="lead narrow">Durumunuzu seçin; kayıtlar ona göre süzülsün. '
+            '<p class="lead narrow">Önce profilinizi seçin; yalnızca sizi ilgilendiren kayıtlar çıksın. '
             'Seçiminiz tarayıcınızda kalır, hiçbir yere gönderilmez ve kaydedilmez.</p>\n'
-            '<div class="chips" role="group" aria-label="Duruma göre süz">\n' + chips + '\n</div>\n'
+            '<h3 class="adim">1 · Size uyanları işaretleyin</h3>\n'
+            '<p class="note">Birden fazla seçebilirsiniz.</p>\n'
+            '<div class="chips" role="group" aria-label="Profilinizi seçin">\n' + chips + '\n</div>\n'
+            '<h3 class="adim">2 · Sizi ilgilendiren kayıtlar</h3>\n'
+            '<p id="deneyin-bos" class="note" hidden>Henüz seçim yapmadınız; yukarıdan durumunuzu işaretleyin.</p>\n'
             '<ul class="kayit-listesi deneyin-liste">\n' + "\n".join(li) + '\n</ul>\n'
             '<p id="deneyin-sayac" class="note" role="status" aria-live="polite"></p>\n'
             f'<p class="note">Şu an {n} kayıt yayında; kapsam henüz dar. '
