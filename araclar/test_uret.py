@@ -136,6 +136,12 @@ class Dogrulama(unittest.TestCase):
         k["tarihler"]["kabul"] = {"tur": "yok"}
         self.hata_var(k, "tarihler.kabul.tur")
 
+    def test_rg_yayim_yok_belediye_karari(self):
+        # Belediye kararları Resmî Gazete'de yayımlanmaz (3011 m.2); "yok" geçerli olmalı
+        k = varyant()
+        k["tarihler"]["rg_yayim"] = {"tur": "yok"}
+        self.assertEqual(uret.dogrula(k, kisitlar=ACIK), [])
+
     def test_yayinda_ilk_yayim_ister(self):
         self.hata_var(varyant(ilk_yayim=KALDIR), "ilk_yayim zorunlu")
 

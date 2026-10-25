@@ -1,0 +1,48 @@
+{
+  "slug": "engelli-tasit-otv-siniri-2026",
+  "baslik": "Engelli taşıt alımında ÖTV istisnasının bedel sınırı: 2.873.900 TL (7577 sayılı Kanun, m.8)",
+  "tur": "kanun",
+  "kurum": "TBMM",
+  "kaynak_durumu": "tam",
+  "tarihler": {
+    "kabul": {
+      "tur": "tarih",
+      "tarih": "2026-04-02"
+    },
+    "rg_yayim": {
+      "tur": "tarih",
+      "tarih": "2026-04-17",
+      "sayi": "33227"
+    },
+    "yururluk": {
+      "tur": "yayim_tarihinde"
+    },
+    "gecerlilik": {
+      "tur": "bilinmiyor"
+    }
+  },
+  "ozet": "Anayasa Mahkemesinin iptal kararı (E.2024/240, K.2025/100) sonrasında, engellilerin ÖTV istisnasıyla taşıt alımını düzenleyen 4760 sayılı Kanun m.7/2-c yeniden düzenlendi. Binek araçlarda istisna, tüm vergiler dahil bedeli 2.873.900 TL'yi aşmayan taşıtlar için geçerli; kamyonet tarafında motor hacmi 2.800 cm³ sınırı korundu.",
+  "kimi": [
+    "engelli",
+    "sürücü"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "Resmî Gazete, 17 Nisan 2026, sayı 33227",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2026/04/20260417-21.htm",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    },
+    {
+      "baslik": "Mevzuat Bilgi Sistemi — 4760 sayılı Kanun m.7 (güncel metin)",
+      "url": "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4760&MevzuatTur=1&MevzuatTertip=5",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}

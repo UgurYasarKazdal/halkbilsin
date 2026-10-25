@@ -1,0 +1,43 @@
+{
+  "slug": "bitkisel-uretim-destekleri-2026",
+  "baslik": "Çiftçiye 2026 üretim yılı temel desteği: dekara 310 TL × ürün katsayısı (CB Kararı 10394)",
+  "tur": "Cumhurbaşkanı kararı",
+  "kurum": "Cumhurbaşkanlığı",
+  "kaynak_durumu": "tam",
+  "tarihler": {
+    "kabul": {
+      "tur": "tarih",
+      "tarih": "2025-09-13"
+    },
+    "rg_yayim": {
+      "tur": "tarih",
+      "tarih": "2025-09-14",
+      "sayi": "33017"
+    },
+    "yururluk": {
+      "tur": "tarih",
+      "tarih": "2026-01-01",
+      "madde": "değişiklik kararının 7 nci maddesi"
+    },
+    "gecerlilik": {
+      "tur": "yok"
+    }
+  },
+  "ozet": "2026 üretim yılı için bitkisel üretimde temel destek katsayı değeri dekara 310 TL olarak belirlendi; ödeme, ürün kategorisine göre 1,0 ile 2,25 arasındaki katsayıyla çarpılarak hesaplanıyor. Örneğin arpa, buğday ve dane mısırın katsayısı 1,3; çeltik ve kütlü pamuğun katsayısı 2,25. Karar, 2025-2027 dönemine ilişkin desteklemeler kararında değişiklik yapıyor.",
+  "kimi": [
+    "çiftçi"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "Resmî Gazete, 14 Eylül 2025, sayı 33017",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2025/09/20250914-6.pdf",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}

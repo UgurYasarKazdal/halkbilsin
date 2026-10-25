@@ -28,7 +28,7 @@ AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
 TARIH_ALANLARI = {
     # alan: (başlık, izinli türler)
     "kabul": ("Kabul", {"tarih", "bilinmiyor"}),
-    "rg_yayim": ("Resmî Gazete’de yayım", {"tarih", "henuz_yok", "bilinmiyor"}),
+    "rg_yayim": ("Resmî Gazete’de yayım", {"tarih", "henuz_yok", "bilinmiyor", "yok"}),
     "yururluk": ("Yürürlük", {"tarih", "yayim_tarihinde", "bilinmiyor"}),
     "gecerlilik": ("Geçerlilik", {"tarih", "yok", "bilinmiyor"}),
 }

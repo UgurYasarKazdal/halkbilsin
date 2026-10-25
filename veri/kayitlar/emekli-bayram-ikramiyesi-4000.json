@@ -1,0 +1,43 @@
+{
+  "slug": "emekli-bayram-ikramiyesi-4000",
+  "baslik": "Emekli bayram ikramiyesi 4.000 TL'ye çıkarıldı (7546 sayılı Kanun, m.8)",
+  "tur": "kanun",
+  "kurum": "TBMM",
+  "kaynak_durumu": "tam",
+  "tarihler": {
+    "kabul": {
+      "tur": "tarih",
+      "tarih": "2025-03-27"
+    },
+    "rg_yayim": {
+      "tur": "tarih",
+      "tarih": "2025-03-30",
+      "sayi": "32857"
+    },
+    "yururluk": {
+      "tur": "yayim_tarihinde"
+    },
+    "gecerlilik": {
+      "tur": "tarih",
+      "tarih": "2025-03-20",
+      "madde": "7546 m.16/c"
+    }
+  },
+  "ozet": "Emeklilere Ramazan ve Kurban bayramlarında ödenen ikramiye, 5510 sayılı Kanun ek madde 18'de yapılan değişiklikle 3.000 TL'den 4.000 TL'ye çıkarıldı. Değişiklik 20 Mart 2025'ten geçerli; o tarihten sonraki bayram ödemelerinde yeni tutar uygulanıyor.",
+  "kimi": [
+    "emekli"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "Resmî Gazete, 30 Mart 2025, sayı 32857",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2025/03/20250330-1.htm",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}
