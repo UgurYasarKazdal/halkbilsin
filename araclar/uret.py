@@ -391,6 +391,32 @@ def deneyin_govdesi(kayitlar):
             '<a href="/kayitlar/">Tüm kayıtlar</a>.</p>')
 
 
+def varliklari_surumle(kok, yaz=True):
+    """style.css ve suz.js bağlantılarına içerik özeti ekler (?v=xxxxxxxx).
+
+    Tarayıcı ve ara önbellekler dosya adını anahtar aldığı için, içerik
+    değişince adres de değişir ve bayat stil/JS kalmaz.
+    """
+    import hashlib
+    surumler = {}
+    for ad in ("style.css", "suz.js"):
+        p = kok / ad
+        if p.exists():
+            surumler[ad] = hashlib.sha256(p.read_bytes()).hexdigest()[:8]
+    if not surumler:
+        return
+    hedefler = list(kok.glob("*.html"))
+    if (kok / "kayitlar").exists():
+        hedefler += list((kok / "kayitlar").glob("*.html"))
+    for hp in hedefler:
+        s = hp.read_text(encoding="utf-8")
+        y = s
+        for ad, hv in surumler.items():
+            y = re.sub(re.escape("/" + ad) + r"(\?v=[0-9a-f]{8})?", "/" + ad + "?v=" + hv, y)
+        if yaz and y != s:
+            hp.write_text(y, encoding="utf-8")
+
+
 DENEYIN_BASLA = "<!-- deneyin:basla -->"
 DENEYIN_BITIR = "<!-- deneyin:bitir -->"
 
@@ -510,6 +536,8 @@ def uret(kok, yaz=True):
             p.unlink()  # yayından kaldırılan kayıt sayfası
     (kok / "sitemap.xml").write_text(sitemap(yayindakiler), encoding="utf-8")
     deneyin_yerlestir(kok, yayindakiler, yaz=yaz)
+    if yaz:
+        varliklari_surumle(kok, yaz=yaz)
     return [], yayindakiler, taslaklar
 
 

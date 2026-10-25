@@ -287,6 +287,19 @@ class Uretim(unittest.TestCase):
         uret.uret(self.kok)
         self.assertEqual(s, (self.kok / "index.html").read_text(encoding="utf-8"))
 
+    def test_varlik_surumleme(self):
+        self.yaz(varyant())
+        (self.kok / "style.css").write_text("body{}", encoding="utf-8")
+        (self.kok / "index.html").write_text(
+            '<link rel="stylesheet" href="/style.css">\n<!-- deneyin:basla -->\n<!-- deneyin:bitir -->',
+            encoding="utf-8")
+        uret.uret(self.kok)
+        s = (self.kok / "index.html").read_text(encoding="utf-8")
+        self.assertRegex(s, r'/style\.css\?v=[0-9a-f]{8}')
+        # ikinci çalıştırma kararlı olmalı
+        uret.uret(self.kok)
+        self.assertEqual(s, (self.kok / "index.html").read_text(encoding="utf-8"))
+
     def test_deneyin_isaretci_yoksa_dokunulmaz(self):
         self.yaz(varyant())
         (self.kok / "index.html").write_text("<html><body>sabit</body></html>", encoding="utf-8")
