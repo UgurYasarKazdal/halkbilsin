@@ -13,7 +13,7 @@ Seni ilgilendiren kanun, yönetmelik ve belediye kararlarını, yürürlük tari
 
 Derleme adımı yok: HTML, CSS ve statik dosyalar doğrudan yayımlanır (`index.html`, `yontem.html`, `gizlilik.html`, `404.html`; `_headers` Cloudflare Pages güvenlik başlıklarını tanımlar). Harici yazı tipi, izleme kodu ya da çerez kullanılmaz. (Barındırma şirketleri teknik olarak bağlantı kayıtları tutabilir.)
 
-Kayıt sayfaları, `veri/kayitlar/*.json` dosyalarından `python3 araclar/uret.py` ile üretilir ve üretilen HTML depoya girer (yayında derleme yok). Ayrıntı: [veri/README.md](veri/README.md).
+Kayıt sayfaları, `veri/kayitlar/*.json` dosyalarından `python3 araclar/uret.py` ile üretilir ve üretilen HTML depoya girer (yayında derleme yok). Üretici, kuralları kod seviyesinde uygular: yargı fiili ve emir dili reddi, kişisel veri kalıbı denetimi (TC kimlik no benzeri sayı, telefon, e-posta, IBAN), ikinci kontrol olmadan yayın yok, ilk yayım / son güncelleme damgası ve eski/yeni ifadeli düzeltme günlüğü. Ayrıntı: [veri/README.md](veri/README.md).
 
 Yerelde görmek için bir klasör sunucusu yeterli:
 
