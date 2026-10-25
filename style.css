@@ -27,7 +27,10 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offse
 .banner{background:var(--accent-soft);color:var(--ink);border-bottom:1px solid var(--line)}
 .banner p{max-width:1120px;margin:0 auto;padding:10px 24px;font-size:0.875rem}
 
-.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:24px}
+.top-bar{background:var(--bg);border-bottom:1px solid var(--line)}
+@media (min-width:900px){.top-bar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:12px;padding-bottom:10px}
+@media (min-width:900px){main [id]{scroll-margin-top:92px}}
 .brand{display:inline-flex;align-items:center;color:var(--ink)}
 .brand img{display:block;height:34px;width:auto}
 .logo-koyu{display:none!important}
@@ -74,10 +77,6 @@ p{margin:0 0 16px}
 .foot{margin:18px 0 0;font-size:0.8125rem;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
 
 .band{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-.steps li{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--bg)}
-.steps h3{color:var(--accent);font-family:var(--sans);font-size:1rem;font-weight:600}
-.steps p{margin:0;color:var(--muted)}
 
 #ilkeler,#geri-bildirim{padding-top:72px;padding-bottom:72px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:32px}
@@ -99,7 +98,7 @@ p{margin:0 0 16px}
 .banner p{padding:10px 16px}
 .hero{padding-top:40px;padding-bottom:48px;gap:32px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.chip.secim{transition:none}}
 
 .prose{padding-top:56px;padding-bottom:72px;max-width:760px}
 .prose h1{margin-bottom:16px}
@@ -119,6 +118,7 @@ p{margin:0 0 16px}
 
 /* Deneyin: durum çipleriyle süzme */
 .chip.secim{font:inherit;font-size:0.9375rem;font-weight:600;padding:10px 18px;min-height:44px;border-radius:999px;cursor:pointer;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.chip.secim{transition:background-color .15s ease,border-color .15s ease,color .15s ease}
 .chip.secim:hover{border-color:var(--accent)}
 .chip.secim::before{content:"+ ";color:var(--muted)}
 .chip.secim[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
@@ -132,3 +132,8 @@ p{margin:0 0 16px}
 .deneyin-liste .dates{margin:12px 0;font-size:.9375rem}
 .deneyin-liste .note{margin:0}
 #deneyin .adim{font-size:1.05rem;margin:28px 0 4px}
+
+/* Deneyin bandı: kartlar zemin renginde ayrışır */
+#deneyin .deneyin-liste li{background:var(--bg)}
+#deneyin .chip.secim{background:var(--bg)}
+#deneyin .chip.secim[aria-pressed="true"]{background:var(--accent)}

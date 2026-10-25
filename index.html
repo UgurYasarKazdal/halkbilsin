@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css?v=a1f33d3d">
+<link rel="stylesheet" href="/style.css?v=2981b721">
 </head>
 <body>
 <a class="skip" href="#icerik">İçeriğe geç</a>
@@ -23,17 +23,19 @@
 <p><strong>Erken sürüm.</strong> İlk gerçek kayıtlar yayında; kapsam henüz dar ve her kayıt elle hazırlanıyor.</p>
 </aside>
 
-<header class="wrap top">
+<header class="top-bar">
+<div class="wrap top">
 <a class="brand" href="./" aria-label="Halk Bilsin ana sayfa">
 <img class="logo-acik" src="logo.svg" alt="Halk Bilsin" width="150" height="31">
 <img class="logo-koyu" src="logo-koyu.svg" alt="" width="150" height="31">
 </a>
 <nav aria-label="Ana menü">
-<a href="#nasil">Nasıl çalışacak</a>
+<a href="#deneyin">Nasıl çalışıyor</a>
 <a href="#ilkeler">İlkelerimiz</a>
 <a href="yontem.html">Yöntem</a>
 <a class="btn small" href="#geri-bildirim">Fikrinizi söyleyin</a>
 </nav>
+</div>
 </header>
 
 <main id="icerik">
@@ -68,21 +70,11 @@
 </aside>
 </section>
 
-<section class="band" id="nasil">
+<section class="band" id="deneyin" aria-labelledby="deneyin-baslik">
 <div class="wrap">
-<h2>Nasıl çalışacak</h2>
-<ol class="steps">
-<li><h3>1 · Profilinizi seçin</h3><p>İlçenizi ve durumunuzu işaretleyin: kiracı, ev sahibi, esnaf, veli, emekli gibi. Ad ve kimlik numarası sormayacağız.</p></li>
-<li><h3>2 · Yalnızca ilgili olanı görün</h3><p>Yayımlanan düzenlemeler profilinize göre süzülecek. Sizi ilgilendirmeyen bir şey akışınıza düşmeyecek.</p></li>
-<li><h3>3 · Tarihi ve kaynağı görün</h3><p>Ne zaman yürürlüğe girdiğini, hangi metne dayandığını ve resmî kaynağını tek ekranda okuyun.</p></li>
-</ol>
-</div>
-</section>
-
-<section class="wrap" id="deneyin" aria-labelledby="deneyin-baslik">
 <!-- deneyin:basla -->
-<h2 id="deneyin-baslik">Deneyin</h2>
-<p class="lead narrow">Önce profilinizi seçin; yalnızca sizi ilgilendiren kayıtlar çıksın. Seçiminiz tarayıcınızda kalır, hiçbir yere gönderilmez ve kaydedilmez.</p>
+<h2 id="deneyin-baslik">Nasıl çalışıyor</h2>
+<p class="lead narrow">Profilinizi seçin; sizi ilgilendiren kayıtlar, tarihleri ve kaynağıyla çıksın. Ad ya da kimlik numarası sormayız; seçiminiz tarayıcınızda kalır, hiçbir yere gönderilmez.</p>
 <h3 class="adim">1 · Size uyanları işaretleyin</h3>
 <p class="note">Birden fazla seçebilirsiniz.</p>
 <div class="chips" role="group" aria-label="Profilinizi seçin">
@@ -131,7 +123,7 @@
 <dl class="dates">
 <div><dt>Kabul</dt><dd>23 Aralık 2025</dd></div>
 <div><dt>Resmî Gazete’de yayım</dt><dd>26 Aralık 2025 (sayı 33119)</dd></div>
-<div><dt>Yürürlük</dt><dd>1 Ocak 2026 (madde kararın 4 üncü bendi)</dd></div>
+<div><dt>Yürürlük</dt><dd>1 Ocak 2026 (kararın 4 üncü bendi)</dd></div>
 <div><dt>Geçerlilik</dt><dd>Yok</dd></div>
 </dl>
 <p class="note">Kimi ilgilendirebilir: çalışan, işveren · <a href="/kayitlar/asgari-ucret-2026.html">Özet, kaynak ve ayrıntı</a></p></li>
@@ -150,13 +142,14 @@
 <div><dt>Kabul</dt><dd>14 Temmuz 2023</dd></div>
 <div><dt>Resmî Gazete’de yayım</dt><dd>15 Temmuz 2023 (sayı 32249)</dd></div>
 <div><dt>Yürürlük</dt><dd>Yayım tarihinde</dd></div>
-<div><dt>Geçerlilik</dt><dd>2 Temmuz 2023 (madde TBK geçici m.2)</dd></div>
+<div><dt>Geçerlilik</dt><dd>2 Temmuz 2023 (TBK geçici m.2)</dd></div>
 </dl>
 <p class="note">Kimi ilgilendirebilir: kiracı, ev sahibi · <a href="/kayitlar/kira-artis-siniri-sonu.html">Özet, kaynak ve ayrıntı</a></p></li>
 </ul>
 <p id="deneyin-sayac" class="note" role="status" aria-live="polite"></p>
 <p class="note">Şu an 6 kayıt yayında; kapsam henüz dar. <a href="/kayitlar/">Tüm kayıtlar</a>.</p>
 <!-- deneyin:bitir -->
+</div>
 </section>
 
 <section class="wrap" id="ilkeler">

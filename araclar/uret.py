@@ -278,7 +278,8 @@ def tarih_hucre(alan, v):
         if v.get("sayi"):
             ek.append(f"sayı {v['sayi']}")
         if v.get("madde"):
-            ek.append(f"madde {v['madde']}")
+            m = str(v["madde"])
+            ek.append(f"madde {m}" if m.isdigit() else m)
         if ek:
             metin += f" ({', '.join(ek)})"
     else:
@@ -346,7 +347,7 @@ def deneyin_govdesi(kayitlar):
     E = html.escape
     yay = [k for k in kayitlar if k.get("yayinda") is True]
     if not yay:
-        return ('<h2 id="deneyin-baslik">Deneyin</h2>\n'
+        return ('<h2 id="deneyin-baslik">Nasıl çalışıyor</h2>\n'
                 '<p class="lead narrow">Henüz yayımlanmış kayıt yok; ilk kayıtlar hazırlanıyor.</p>')
 
     def rg_metin(k):
@@ -377,9 +378,9 @@ def deneyin_govdesi(kayitlar):
             f'<p class="note">Kimi ilgilendirebilir: {E(kimi)} · '
             f'<a href="/kayitlar/{E(k["slug"])}.html">Özet, kaynak ve ayrıntı</a></p></li>')
     n = len(sirali)
-    return ('<h2 id="deneyin-baslik">Deneyin</h2>\n'
-            '<p class="lead narrow">Önce profilinizi seçin; yalnızca sizi ilgilendiren kayıtlar çıksın. '
-            'Seçiminiz tarayıcınızda kalır, hiçbir yere gönderilmez ve kaydedilmez.</p>\n'
+    return ('<h2 id="deneyin-baslik">Nasıl çalışıyor</h2>\n'
+            '<p class="lead narrow">Profilinizi seçin; sizi ilgilendiren kayıtlar, tarihleri ve kaynağıyla çıksın. '
+            'Ad ya da kimlik numarası sormayız; seçiminiz tarayıcınızda kalır, hiçbir yere gönderilmez.</p>\n'
             '<h3 class="adim">1 · Size uyanları işaretleyin</h3>\n'
             '<p class="note">Birden fazla seçebilirsiniz.</p>\n'
             '<div class="chips" role="group" aria-label="Profilinizi seçin">\n' + chips + '\n</div>\n'
