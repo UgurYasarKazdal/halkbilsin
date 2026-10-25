@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/source-serif-4-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/style.css?v=2981b721">
+<link rel="stylesheet" href="/style.css?v=8a418d96">
 </head>
 <body>
 <a class="skip" href="#icerik">İçeriğe geç</a>
@@ -76,17 +76,22 @@
 <h2 id="deneyin-baslik">Nasıl çalışıyor</h2>
 <p class="lead narrow">Profilinizi seçin; sizi ilgilendiren kayıtlar, tarihleri ve kaynağıyla çıksın. Ad ya da kimlik numarası sormayız; seçiminiz tarayıcınızda kalır, hiçbir yere gönderilmez.</p>
 <h3 class="adim">1 · Size uyanları işaretleyin</h3>
-<p class="note">Birden fazla seçebilirsiniz.</p>
+<p class="note">Birden fazla seçebilirsiniz. Sayı, o durum için bugünkü kayıt sayısıdır. İl/ilçe, meslek ve konuya göre süzme planda; etiketler kayıtlarla birlikte çoğalacak.</p>
 <div class="chips" role="group" aria-label="Profilinizi seçin">
-<button type="button" class="chip secim" data-kimi="ev sahibi" aria-pressed="false">ev sahibi</button>
-<button type="button" class="chip secim" data-kimi="işveren" aria-pressed="false">işveren</button>
-<button type="button" class="chip secim" data-kimi="kiracı" aria-pressed="false">kiracı</button>
-<button type="button" class="chip secim" data-kimi="sürücü" aria-pressed="false">sürücü</button>
-<button type="button" class="chip secim" data-kimi="tüketici" aria-pressed="false">tüketici</button>
-<button type="button" class="chip secim" data-kimi="veli" aria-pressed="false">veli</button>
-<button type="button" class="chip secim" data-kimi="yatırım fonu sahibi" aria-pressed="false">yatırım fonu sahibi</button>
-<button type="button" class="chip secim" data-kimi="çalışan" aria-pressed="false">çalışan</button>
-<button type="button" class="chip secim" data-kimi="öğrenci" aria-pressed="false">öğrenci</button>
+<button type="button" class="chip secim" data-kimi="emekli" aria-pressed="false" aria-label="emekli, henüz kayıt yok">emekli</button>
+<button type="button" class="chip secim" data-kimi="engelli" aria-pressed="false" aria-label="engelli, henüz kayıt yok">engelli</button>
+<button type="button" class="chip secim" data-kimi="esnaf" aria-pressed="false" aria-label="esnaf, henüz kayıt yok">esnaf</button>
+<button type="button" class="chip secim" data-kimi="ev sahibi" aria-pressed="false" aria-label="ev sahibi, 1 kayıt">ev sahibi <span class="say">1</span></button>
+<button type="button" class="chip secim" data-kimi="işveren" aria-pressed="false" aria-label="işveren, 1 kayıt">işveren <span class="say">1</span></button>
+<button type="button" class="chip secim" data-kimi="kiracı" aria-pressed="false" aria-label="kiracı, 1 kayıt">kiracı <span class="say">1</span></button>
+<button type="button" class="chip secim" data-kimi="sürücü" aria-pressed="false" aria-label="sürücü, 1 kayıt">sürücü <span class="say">1</span></button>
+<button type="button" class="chip secim" data-kimi="tüketici" aria-pressed="false" aria-label="tüketici, 1 kayıt">tüketici <span class="say">1</span></button>
+<button type="button" class="chip secim" data-kimi="veli" aria-pressed="false" aria-label="veli, 1 kayıt">veli <span class="say">1</span></button>
+<button type="button" class="chip secim" data-kimi="yatırım fonu sahibi" aria-pressed="false" aria-label="yatırım fonu sahibi, 1 kayıt">yatırım fonu sahibi <span class="say">1</span></button>
+<button type="button" class="chip secim" data-kimi="yeni anne-baba" aria-pressed="false" aria-label="yeni anne-baba, henüz kayıt yok">yeni anne-baba</button>
+<button type="button" class="chip secim" data-kimi="çalışan" aria-pressed="false" aria-label="çalışan, 1 kayıt">çalışan <span class="say">1</span></button>
+<button type="button" class="chip secim" data-kimi="çiftçi" aria-pressed="false" aria-label="çiftçi, henüz kayıt yok">çiftçi</button>
+<button type="button" class="chip secim" data-kimi="öğrenci" aria-pressed="false" aria-label="öğrenci, 1 kayıt">öğrenci <span class="say">1</span></button>
 </div>
 <h3 class="adim">2 · Sizi ilgilendiren kayıtlar</h3>
 <p id="deneyin-bos" class="note" hidden>Henüz seçim yapmadınız; yukarıdan durumunuzu işaretleyin.</p>
@@ -196,9 +201,9 @@
 
 <section class="wrap" id="geri-bildirim">
 <h2>Fikrinizi söyleyin</h2>
-<p class="lead narrow">Böyle bir hizmeti kullanır mıydınız? Hangi konular sizi ilgilendiriyor? Bu soruların cevabı projenin nereye gideceğini belirleyecek.</p>
+<p class="lead narrow">Böyle bir hizmeti kullanır mıydınız? Hangi konular sizi ilgilendiriyor? Yazarken ilçenizi ve durumunuzu da eklerseniz, neyi önce kapsayacağımıza birlikte karar veririz; e-posta düğmesi size hazır bir şablon açar.</p>
 <div class="actions">
-<a class="btn" href="mailto:iletisim@halkbilsin.tr">E-posta yazın</a>
+<a class="btn" href="mailto:iletisim@halkbilsin.tr?subject=Halk%20Bilsin%27e%20fikrim&body=%C4%B0l%C3%A7em%3A%0ADurumum%20%28kirac%C4%B1%2C%20veli%2C%20esnaf%2C%20emekli...%29%3A%0ABeni%20ilgilendiren%20konular%3A%0AFikrim/%C3%B6nerim%3A%0A">E-posta yazın</a>
 <a class="btn ghost" href="https://github.com/UgurYasarKazdal/halkbilsin/issues">GitHub’da yazın</a>
 </div>
 <p class="note">İletişim: <a href="mailto:iletisim@halkbilsin.tr">iletisim@halkbilsin.tr</a>. Kod ve kurallar GitHub’da açık.</p>

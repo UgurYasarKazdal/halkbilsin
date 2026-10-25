@@ -137,3 +137,5 @@ p{margin:0 0 16px}
 #deneyin .deneyin-liste li{background:var(--bg)}
 #deneyin .chip.secim{background:var(--bg)}
 #deneyin .chip.secim[aria-pressed="true"]{background:var(--accent)}
+.chip.secim .say{display:inline-block;min-width:1.4em;text-align:center;margin-left:4px;padding:1px 6px;border-radius:999px;font-size:.75em;background:var(--accent-soft);color:var(--ink)}
+.chip.secim[aria-pressed="true"] .say{background:var(--surface);color:var(--accent)}

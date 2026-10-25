@@ -274,6 +274,9 @@ class Uretim(unittest.TestCase):
         self.assertEqual(hatalar, [])
         s = (self.kok / "index.html").read_text(encoding="utf-8")
         self.assertIn('data-kimi="kiracı"', s)          # çip
+        self.assertIn('aria-label="kiracı, 1 kayıt"', s)  # sayı rozeti
+        self.assertIn('data-kimi="emekli"', s)            # kaydı olmayan durum da görünür
+        self.assertIn('aria-label="emekli, henüz kayıt yok"', s)
         self.assertIn('aria-pressed="false"', s)
         self.assertIn('<li data-kimi="kiracı">', s)      # kayıt öğesi
         self.assertIn("Şu an 1 kayıt yayında", s)

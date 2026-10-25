@@ -361,10 +361,15 @@ def deneyin_govdesi(kayitlar):
         return v["tarih"] if v["tur"] == "tarih" else "9999-99-99"
 
     sirali = sorted(yay, key=anahtar, reverse=True)
-    kimiler = sorted({x for k in yay for x in k.get("kimi", [])})
-    chips = "\n".join(
-        f'<button type="button" class="chip secim" data-kimi="{E(x)}" aria-pressed="false">{E(x)}</button>'
-        for x in kimiler)
+    kimiler = sorted(KIMI)  # tam sözlük: kaydı olmayan durum gizlenmez, "henüz yok" diye yaşar
+    say = {x: sum(1 for k in yay if x in k.get("kimi", [])) for x in kimiler}
+    def chip(x):
+        n = say[x]
+        rozet = f' <span class="say">{n}</span>' if n else ""
+        etiket = f"{x}, {n} kayıt" if n else f"{x}, henüz kayıt yok"
+        return (f'<button type="button" class="chip secim" data-kimi="{E(x)}" '
+                f'aria-pressed="false" aria-label="{E(etiket)}">{E(x)}{rozet}</button>')
+    chips = "\n".join(chip(x) for x in kimiler)
     li = []
     for k in sirali:
         s = k["kaynak_durumu"]
@@ -382,7 +387,8 @@ def deneyin_govdesi(kayitlar):
             '<p class="lead narrow">Profilinizi seçin; sizi ilgilendiren kayıtlar, tarihleri ve kaynağıyla çıksın. '
             'Ad ya da kimlik numarası sormayız; seçiminiz tarayıcınızda kalır, hiçbir yere gönderilmez.</p>\n'
             '<h3 class="adim">1 · Size uyanları işaretleyin</h3>\n'
-            '<p class="note">Birden fazla seçebilirsiniz.</p>\n'
+            '<p class="note">Birden fazla seçebilirsiniz. Sayı, o durum için bugünkü kayıt sayısıdır. '
+            'İl/ilçe, meslek ve konuya göre süzme planda; etiketler kayıtlarla birlikte çoğalacak.</p>\n'
             '<div class="chips" role="group" aria-label="Profilinizi seçin">\n' + chips + '\n</div>\n'
             '<h3 class="adim">2 · Sizi ilgilendiren kayıtlar</h3>\n'
             '<p id="deneyin-bos" class="note" hidden>Henüz seçim yapmadınız; yukarıdan durumunuzu işaretleyin.</p>\n'
