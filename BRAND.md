@@ -45,6 +45,6 @@ Toprak ve grafit tonları seçildi; çünkü kırmızı, turuncu, mavi, turkuaz 
 `logo.svg` (açık zemin) · `logo-koyu.svg` (koyu zemin) · `favicon.svg`
 
 ## Açık maddeler
-- TÜRKPATENT'te "Halk Bilsin" sorgusu (sınıf 9/35/38/41/42).
+- TÜRKPATENT: 25 Ekim 2026'da "halkbilsin" için birebir sorguda kayıt çıkmadı (kullanıcı kontrolü). Benzer ve yakın sınıf markalar ile bekleyen başvurular kontrol edilmedi.
 - 15–20 kişiyle 5 saniyelik isim ve renk çağrışım testi.
 - Kod ve içerik lisansı seçimi.
