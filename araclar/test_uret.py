@@ -13,6 +13,7 @@ from pathlib import Path
 import uret
 
 KOK = Path(__file__).resolve().parent.parent
+ACIK = {"eylem_bolumu": True, "temsilci_verisi": False, "bulten": False}
 
 GECERLI = {
     "slug": "test-kaydi",
@@ -56,11 +57,26 @@ KALDIR = object()
 
 class Dogrulama(unittest.TestCase):
     def hata_var(self, kayit, parca):
-        h = uret.dogrula(kayit)
+        h = uret.dogrula(kayit, kisitlar=ACIK)
         self.assertTrue(any(parca in x for x in h), f"{parca!r} bekleniyordu, çıkan: {h}")
 
+    def test_eylem_bolumu_varsayilan_olarak_kapali(self):
+        h = uret.dogrula(GECERLI)  # kısıt verilmedi
+        self.assertTrue(any("kapalı" in x for x in h), h)
+
+    def test_kisit_dosyasi_yoksa_kapali(self):
+        d = Path(tempfile.mkdtemp())
+        try:
+            self.assertFalse(uret.kisitlari_oku(d)["eylem_bolumu"])
+        finally:
+            shutil.rmtree(d)
+
+    def test_depodaki_kisit_dosyasi_kapali(self):
+        self.assertFalse(uret.kisitlari_oku(KOK)["eylem_bolumu"])
+        self.assertFalse(uret.kisitlari_oku(KOK)["temsilci_verisi"])
+
     def test_gecerli_kayit_gecer(self):
-        self.assertEqual(uret.dogrula(GECERLI), [])
+        self.assertEqual(uret.dogrula(GECERLI, kisitlar=ACIK), [])
 
     def test_zorunlu_alan_eksik(self):
         self.hata_var(varyant(ozet=KALDIR), "zorunlu alan eksik: ozet")
@@ -112,7 +128,7 @@ class Dogrulama(unittest.TestCase):
     def test_bilinmeyen_tarih_acikca_yazilir(self):
         k = varyant()
         k["tarihler"]["gecerlilik"] = {"tur": "bilinmiyor"}
-        self.assertEqual(uret.dogrula(k), [])
+        self.assertEqual(uret.dogrula(k, kisitlar=ACIK), [])
 
     def test_tarih_turu_alana_uygun_olmali(self):
         k = varyant()
@@ -125,7 +141,7 @@ class Dogrulama(unittest.TestCase):
     def test_taslak_ikinci_kontrol_istemez(self):
         k = varyant(yayinda=False)
         del k["ikinci_kontrol"]
-        self.assertEqual(uret.dogrula(k), [])
+        self.assertEqual(uret.dogrula(k, kisitlar=ACIK), [])
 
     def test_https_olmayan_kaynak(self):
         k = varyant()
@@ -148,6 +164,7 @@ class Uretim(unittest.TestCase):
         for ad in ("yontem.html", "gizlilik.html", "sitemap.xml"):
             shutil.copy(KOK / ad, self.kok / ad)
         (self.kok / "veri" / "kayitlar").mkdir(parents=True)
+        (self.kok / "veri" / "kisitlar.json").write_text(json.dumps(ACIK), encoding="utf-8")
 
     def tearDown(self):
         shutil.rmtree(self.kok)
@@ -230,6 +247,12 @@ class Uretim(unittest.TestCase):
         uret.uret(self.kok)
         b = (self.kok / "kayitlar" / "test-kaydi.html").read_text(encoding="utf-8")
         self.assertEqual(a, b)
+
+    def test_kapali_kisitta_eylemli_kayit_reddedilir(self):
+        (self.kok / "veri" / "kisitlar.json").write_text(json.dumps({"eylem_bolumu": False}), encoding="utf-8")
+        self.yaz(GECERLI)
+        hatalar, _, _ = uret.uret(self.kok)
+        self.assertTrue(any("kapalı" in h for h in hatalar))
 
     def test_depodaki_gercek_veri_gecerli(self):
         hatalar, _, _ = uret.uret(KOK, yaz=False)

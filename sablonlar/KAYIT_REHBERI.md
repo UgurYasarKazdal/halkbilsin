@@ -10,6 +10,7 @@ Kayıtlar artık elle HTML yazılarak değil, `veri/kayitlar/<slug>.json` olarak
 5. **Düzeltme notları** bölümü (boş olsa da görünür).
 
 ## Koşullu alan
+- **Şu an kapalı:** `veri/kisitlar.json` içinde `eylem_bolumu: false`; üretici eylemli kaydı reddeder. Hukuki inceleme (Avukatlık Kanunu m.35, TBK m.115) bitmeden açılmaz.
 - **"Ne yapmanız gerekebilir"** yalnızca kaynak durumu ● olduğunda. Her madde için madde numarası; tavsiye dili ("yapın", "mutlaka") yok; "istenmektedir", "öngörülmektedir" gibi metne bağlı ifadeler.
 
 ## Dil

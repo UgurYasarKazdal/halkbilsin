@@ -49,6 +49,7 @@ YASAKLI = [
     "mutlaka", "kesinlikle", "sakın", "yapın", "yapınız", "etmeyin", "gidin",
     "başvurun", "ödeyin",
 ]
+KISIT_VARSAYILAN = {"eylem_bolumu": False, "temsilci_verisi": False, "bulten": False}
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 ISO_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -73,8 +74,12 @@ def yasakli_bul(metin):
     return [w for w in YASAKLI if w in k]
 
 
-def dogrula(kayit, ad="kayıt"):
-    """Hata listesi döndürür; boşsa kayıt geçerlidir."""
+def dogrula(kayit, ad="kayıt", kisitlar=None):
+    """Hata listesi döndürür; boşsa kayıt geçerlidir.
+
+    kisitlar verilmezse en kısıtlı varsayılan uygulanır (eylem bölümü kapalı).
+    """
+    kisitlar = KISIT_VARSAYILAN if kisitlar is None else kisitlar
     h = []
     e = h.append
     if not isinstance(kayit, dict):
@@ -157,6 +162,8 @@ def dogrula(kayit, ad="kayıt"):
 
     # eylemler: yalnızca tam
     eylemler = kayit.get("eylemler", [])
+    if eylemler and not kisitlar.get("eylem_bolumu"):
+        e(f"{ad}: 'ne yapmanız gerekebilir' bölümü hukuki inceleme tamamlanana kadar kapalı (veri/kisitlar.json)")
     if eylemler and durum != "tam":
         e(f"{ad}: 'ne yapmanız gerekebilir' yalnızca kaynak_durumu 'tam' iken yazılır")
     for i, ey in enumerate(eylemler):
@@ -326,7 +333,17 @@ def sitemap(kayitlar):
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + govde + "\n</urlset>\n")
 
 
+def kisitlari_oku(kok):
+    p = kok / "veri" / "kisitlar.json"
+    if not p.exists():
+        return dict(KISIT_VARSAYILAN)  # dosya yoksa en kısıtlı hâl
+    k = dict(KISIT_VARSAYILAN)
+    k.update({a: b is True for a, b in json.loads(p.read_text(encoding="utf-8")).items() if a in KISIT_VARSAYILAN})
+    return k
+
+
 def yukle(kok):
+    kisitlar = kisitlari_oku(kok)
     klasor = kok / "veri" / "kayitlar"
     kayitlar, hatalar = [], []
     slugs = set()
@@ -336,7 +353,7 @@ def yukle(kok):
         except json.JSONDecodeError as x:
             hatalar.append(f"{p.name}: JSON hatası: {x}")
             continue
-        h = dogrula(k, p.name)
+        h = dogrula(k, p.name, kisitlar)
         if not h and k["slug"] != p.stem:
             h.append(f"{p.name}: slug dosya adıyla ({p.stem}) aynı olmalı")
         if not h and k["slug"] in slugs:
