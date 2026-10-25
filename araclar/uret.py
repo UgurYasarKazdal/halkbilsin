@@ -412,7 +412,8 @@ def varliklari_surumle(kok, yaz=True):
         s = hp.read_text(encoding="utf-8")
         y = s
         for ad, hv in surumler.items():
-            y = re.sub(re.escape("/" + ad) + r"(\?v=[0-9a-f]{8})?", "/" + ad + "?v=" + hv, y)
+            y = re.sub(r"(/?)" + re.escape(ad) + r"(\?v=[0-9a-f]{8})?",
+                       lambda m, ad=ad, hv=hv: m.group(1) + ad + "?v=" + hv, y)
         if yaz and y != s:
             hp.write_text(y, encoding="utf-8")
 
