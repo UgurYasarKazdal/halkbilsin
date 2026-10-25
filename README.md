@@ -9,7 +9,7 @@ Seni ilgilendiren kanun, yönetmelik ve belediye kararlarını, yürürlük tari
 
 ## Bu sayfa nasıl çalışıyor
 
-Derleme adımı yok: `index.html` ve `style.css` doğrudan yayımlanır. Harici yazı tipi, izleme kodu ya da çerez kullanılmaz; sayfa ziyaretçiden veri toplamaz.
+Derleme adımı yok: `index.html` ve `style.css` doğrudan yayımlanır. Harici yazı tipi, izleme kodu ya da çerez kullanılmaz. (Barındırma şirketleri teknik olarak bağlantı kayıtları tutabilir.)
 
 Yerelde görmek için bir klasör sunucusu yeterli:
 
