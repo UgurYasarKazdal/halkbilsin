@@ -111,3 +111,8 @@ p{margin:0 0 16px}
 .prose .st{margin-bottom:8px}
 .prose .meta{font-size:0.9375rem}
 .prose .dates{margin-bottom:8px}
+.prose .kayit-listesi{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:16px}
+.kayit-listesi li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 24px}
+.kayit-listesi .st{margin:0 0 6px;font-size:.875rem}
+.kayit-listesi h2{font-size:1.25rem;margin:0 0 6px}
+.kayit-listesi p{margin:0}
