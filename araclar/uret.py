@@ -50,6 +50,12 @@ YASAKLI = [
     "başvurun", "ödeyin",
 ]
 KISIT_VARSAYILAN = {"eylem_bolumu": False, "temsilci_verisi": False, "bulten": False}
+KISISEL_VERI = [
+    ("TC kimlik numarası benzeri 11 haneli sayı", re.compile(r"(?<!\d)[1-9]\d{10}(?!\d)")),
+    ("telefon numarası", re.compile(r"(?<!\d)(?:\+?90[\s.-]?)?\(?0?5\d{2}\)?[\s.-]?\d{3}[\s.-]?\d{2}[\s.-]?\d{2}(?!\d)")),
+    ("e-posta adresi", re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")),
+    ("IBAN", re.compile(r"\bTR\d{2}(?:\s?\d{4}){5}\s?\d{2}\b", re.I)),
+]
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 ISO_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -67,6 +73,10 @@ def iso(s):
 def tarih_yaz(s):
     d = iso(s)
     return f"{d.day} {AYLAR[d.month - 1]} {d.year}"
+
+
+def kisisel_veri_bul(metin):
+    return [ad for ad, rx in KISISEL_VERI if rx.search(metin)]
 
 
 def yasakli_bul(metin):
@@ -174,6 +184,12 @@ def dogrula(kayit, ad="kayıt", kisitlar=None):
     metinler = [kayit["baslik"], kayit["ozet"]]
     metinler += [ey.get("metin", "") for ey in eylemler if isinstance(ey, dict)]
     metinler += [d.get("not", "") for d in kayit.get("duzeltmeler", []) if isinstance(d, dict)]
+    metinler += [str(s.get("baslik", "")) for s in kayit.get("kaynaklar", []) if isinstance(s, dict)]
+    metinler += [str(d.get(z, "")) for d in kayit.get("duzeltmeler", []) if isinstance(d, dict) for z in ("eski", "yeni")]
+    for m in metinler:
+        kv = kisisel_veri_bul(str(m))
+        if kv:
+            e(f"{ad}: metinde kişisel veri kalıbı ({', '.join(kv)}) — maskeleyin/çıkarın: {str(m)[:50]!r}")
     for m in metinler:
         bulunan = yasakli_bul(str(m))
         if bulunan:
@@ -191,6 +207,29 @@ def dogrula(kayit, ad="kayıt", kisitlar=None):
             e(f"{ad}: duzeltmeler[{i}].tarih: {x}")
         if not (isinstance(d, dict) and d.get("not")):
             e(f"{ad}: duzeltmeler[{i}].not zorunlu")
+        for z in ("eski", "yeni"):
+            if not (isinstance(d, dict) and d.get(z)):
+                e(f"{ad}: duzeltmeler[{i}].{z} zorunlu (eski ifade silinmez, eski/yeni birlikte gösterilir)")
+
+    # tarih damgaları (m.4/4 gönüllü uygulama: değişmeyen ilk yayım / son güncelleme)
+    ilk, son = kayit.get("ilk_yayim"), kayit.get("son_guncelleme")
+    if kayit.get("yayinda") is True and not ilk:
+        e(f"{ad}: yayinda=true için ilk_yayim zorunlu")
+    for alan, v in (("ilk_yayim", ilk), ("son_guncelleme", son)):
+        if v is not None:
+            try:
+                iso(v)
+            except ValueError as x:
+                e(f"{ad}: {alan}: {x}")
+    try:
+        if ilk and son and iso(son) < iso(ilk):
+            e(f"{ad}: son_guncelleme ilk_yayim'dan önce olamaz")
+        if kayit.get("duzeltmeler") and ilk:
+            son_duz = max(iso(d["tarih"]) for d in kayit["duzeltmeler"])
+            if iso(son or ilk) < son_duz:
+                e(f"{ad}: son_guncelleme son düzeltme tarihinden önce olamaz")
+    except (ValueError, KeyError, TypeError):
+        pass
 
     # yayın koşulu
     if kayit["yayinda"] is True:
@@ -282,15 +321,22 @@ def kayit_govdesi(k):
     out.append(f"<ul>\n{li}\n</ul>")
     out.append("<h2>Düzeltme notları</h2>")
     if k.get("duzeltmeler"):
-        li = "\n".join(f'<li><strong>{E(tarih_yaz(d["tarih"]))}:</strong> {E(d["not"])}</li>'
+        li = "\n".join(f'<li><strong>{E(tarih_yaz(d["tarih"]))}:</strong> {E(d["not"])} '
+                       f'<span class="note">Eski: “{E(d["eski"])}” · Yeni: “{E(d["yeni"])}”</span></li>'
                        for d in k["duzeltmeler"])
         out.append(f"<ul>\n{li}\n</ul>")
     out.append('<p class="note">'
                + ("Henüz düzeltme yok. " if not k.get("duzeltmeler") else "")
                + 'Hata için: <a href="mailto:iletisim@halkbilsin.tr">iletisim@halkbilsin.tr</a>. '
                '<a href="/yontem.html">Yöntemimiz</a>.</p>')
+    damga = []
+    if k.get("ilk_yayim"):
+        damga.append(f"İlk yayım: {tarih_yaz(k['ilk_yayim'])}")
+        damga.append(f"Son güncelleme: {tarih_yaz(k.get('son_guncelleme') or k['ilk_yayim'])}")
     if k.get("ikinci_kontrol"):
-        out.append(f'<p class="note">İkinci kontrol: {E(tarih_yaz(k["ikinci_kontrol"]["tarih"]))}.</p>')
+        damga.append(f"İkinci kontrol: {tarih_yaz(k['ikinci_kontrol']['tarih'])}")
+    if damga:
+        out.append(f'<p class="note">{E(" · ".join(damga))}.</p>')
     return "\n".join(out)
 
 

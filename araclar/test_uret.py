@@ -33,6 +33,7 @@ GECERLI = {
     "kaynaklar": [{"baslik": "Test kaynağı", "url": "https://example.org/x",
                    "okunma_tarihi": "2030-01-16", "birincil": True}],
     "duzeltmeler": [],
+    "ilk_yayim": "2030-01-17",
     "ikinci_kontrol": {"tarih": "2030-01-17"},
     "yayinda": True,
 }
@@ -135,6 +136,44 @@ class Dogrulama(unittest.TestCase):
         k["tarihler"]["kabul"] = {"tur": "yok"}
         self.hata_var(k, "tarihler.kabul.tur")
 
+    def test_yayinda_ilk_yayim_ister(self):
+        self.hata_var(varyant(ilk_yayim=KALDIR), "ilk_yayim zorunlu")
+
+    def test_son_guncelleme_ilk_yayimdan_once_olamaz(self):
+        self.hata_var(varyant(son_guncelleme="2029-12-01"), "ilk_yayim'dan önce")
+
+    def test_son_guncelleme_duzeltmeden_once_olamaz(self):
+        k = varyant(duzeltmeler=[{"tarih": "2030-03-01", "not": "Tarih düzeltildi.", "eski": "A", "yeni": "B"}])
+        self.hata_var(k, "son düzeltme tarihinden önce")
+        k["son_guncelleme"] = "2030-03-01"
+        self.assertEqual(uret.dogrula(k, kisitlar=ACIK), [])
+
+    def test_duzeltme_eski_ve_yeni_ister(self):
+        k = varyant(duzeltmeler=[{"tarih": "2030-02-01", "not": "Düzeltildi."}], son_guncelleme="2030-02-01")
+        self.hata_var(k, "eski")
+
+    def test_tc_kimlik_benzeri_sayi_reddedilir(self):
+        self.hata_var(varyant(ozet="Başvuran 12345678901 numaralıdır."), "kişisel veri")
+
+    def test_telefon_reddedilir(self):
+        for tel in ("0532 123 45 67", "+90 532 123 45 67", "05321234567"):
+            self.hata_var(varyant(ozet=f"Arayın: {tel}."), "telefon")
+
+    def test_eposta_reddedilir(self):
+        self.hata_var(varyant(ozet="Yazın: ad.soyad@ornek.com"), "e-posta")
+
+    def test_iban_reddedilir(self):
+        self.hata_var(varyant(ozet="TR33 0006 1005 1978 6457 8413 26 hesabına."), "IBAN")
+
+    def test_rg_sayisi_ve_madde_no_kisisel_veri_sanilmaz(self):
+        k = varyant(ozet="Resmî Gazete sayı 33323, madde 12, kanun 7596.")
+        self.assertEqual(uret.dogrula(k, kisitlar=ACIK), [])
+
+    def test_kaynak_basliginda_kisisel_veri_reddedilir(self):
+        k = varyant()
+        k["kaynaklar"][0]["baslik"] = "İletişim 0532 123 45 67"
+        self.hata_var(k, "telefon")
+
     def test_yayinda_ikinci_kontrol_ister(self):
         self.hata_var(varyant(ikinci_kontrol=KALDIR), "ikinci_kontrol")
 
@@ -198,6 +237,8 @@ class Uretim(unittest.TestCase):
         self.assertIn("10 Ocak 2030", s)
         self.assertIn("sayı 99999", s)
         self.assertIn("madde 5", s)
+        self.assertIn("İlk yayım: 17 Ocak 2030", s)
+        self.assertIn("Son güncelleme: 17 Ocak 2030", s)
         self.assertIn("Ne yapmanız gerekebilir", s)
         self.assertNotIn('content="noindex"', s)
         self.assertIn("kayitlar/test-kaydi.html", (self.kok / "sitemap.xml").read_text())
@@ -213,6 +254,16 @@ class Uretim(unittest.TestCase):
         s = (self.kok / "kayitlar" / "test-kaydi.html").read_text(encoding="utf-8")
         self.assertNotIn("<h2>Ne yapmanız gerekebilir</h2>", s)
         self.assertIn("henüz okunmadı", s)
+
+    def test_duzeltme_eski_yeni_gorunur(self):
+        k = varyant(duzeltmeler=[{"tarih": "2030-02-01", "not": "Yürürlük tarihi düzeltildi.",
+                                  "eski": "1 Şubat", "yeni": "1 Mart"}], son_guncelleme="2030-02-01")
+        self.yaz(k)
+        hatalar, _, _ = uret.uret(self.kok)
+        self.assertEqual(hatalar, [])
+        s = (self.kok / "kayitlar" / "test-kaydi.html").read_text(encoding="utf-8")
+        self.assertIn("Eski: “1 Şubat” · Yeni: “1 Mart”", s)
+        self.assertIn("Son güncelleme: 1 Şubat 2030", s)
 
     def test_html_kacislanir(self):
         self.yaz(varyant(baslik='<script>alert(1)</script> Kanunu'))
