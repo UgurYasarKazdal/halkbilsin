@@ -265,6 +265,29 @@ class Uretim(unittest.TestCase):
         self.assertIn("Eski: “1 Şubat” · Yeni: “1 Mart”", s)
         self.assertIn("Son güncelleme: 1 Şubat 2030", s)
 
+    def test_deneyin_bolumu_uretilir(self):
+        self.yaz(varyant())
+        (self.kok / "index.html").write_text(
+            "<html><body>\n<!-- deneyin:basla -->\n<!-- deneyin:bitir -->\n</body></html>",
+            encoding="utf-8")
+        hatalar, _, _ = uret.uret(self.kok)
+        self.assertEqual(hatalar, [])
+        s = (self.kok / "index.html").read_text(encoding="utf-8")
+        self.assertIn('data-kimi="kiracı"', s)          # çip
+        self.assertIn('aria-pressed="false"', s)
+        self.assertIn('<li data-kimi="kiracı">', s)      # kayıt öğesi
+        self.assertIn("Şu an 1 kayıt yayında", s)
+        # ikinci çalıştırma aynı çıktıyı vermeli (determinizm)
+        uret.uret(self.kok)
+        self.assertEqual(s, (self.kok / "index.html").read_text(encoding="utf-8"))
+
+    def test_deneyin_isaretci_yoksa_dokunulmaz(self):
+        self.yaz(varyant())
+        (self.kok / "index.html").write_text("<html><body>sabit</body></html>", encoding="utf-8")
+        uret.uret(self.kok)
+        self.assertEqual("<html><body>sabit</body></html>",
+                         (self.kok / "index.html").read_text(encoding="utf-8"))
+
     def test_html_kacislanir(self):
         self.yaz(varyant(baslik='<script>alert(1)</script> Kanunu'))
         uret.uret(self.kok)

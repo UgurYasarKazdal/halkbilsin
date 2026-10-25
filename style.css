@@ -116,3 +116,10 @@ p{margin:0 0 16px}
 .kayit-listesi .st{margin:0 0 6px;font-size:.875rem}
 .kayit-listesi h2{font-size:1.25rem;margin:0 0 6px}
 .kayit-listesi p{margin:0}
+
+/* Deneyin: durum çipleriyle süzme */
+.chip.secim{font:inherit;font-size:0.75rem;font-weight:600;padding:4px 12px;border-radius:999px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.chip.secim[aria-pressed="true"]{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+.deneyin-liste li[hidden]{display:none}
+.deneyin-liste h3{margin:0 0 4px;font-size:1.05rem}
+.deneyin-liste h3 a{color:inherit}

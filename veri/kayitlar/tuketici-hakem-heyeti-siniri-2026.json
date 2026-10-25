@@ -1,0 +1,42 @@
+{
+  "slug": "tuketici-hakem-heyeti-siniri-2026",
+  "baslik": "Tüketici hakem heyeti parasal sınırının artırılması (2026: 186.000 TL)",
+  "tur": "tebliğ",
+  "kurum": "Ticaret Bakanlığı",
+  "kaynak_durumu": "tam",
+  "tarihler": {
+    "kabul": {
+      "tur": "bilinmiyor"
+    },
+    "rg_yayim": {
+      "tur": "tarih",
+      "tarih": "2025-12-23",
+      "sayi": "33116"
+    },
+    "yururluk": {
+      "tur": "tarih",
+      "tarih": "2026-01-01",
+      "madde": "5"
+    },
+    "gecerlilik": {
+      "tur": "yok"
+    }
+  },
+  "ozet": "2026 yılında değeri 186.000 TL'nin altında kalan uyuşmazlıklar için il ve ilçe tüketici hakem heyetleri görevli. Sınır, 2025 yeniden değerleme oranı (%25,49) uygulanarak belirlendi. Başvuru, tüketicinin yerleşim yerindeki ya da işlemin yapıldığı yerdeki heyete yapılabiliyor.",
+  "kimi": [
+    "tüketici"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "Resmî Gazete, 23 Aralık 2025, sayı 33116",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2025/12/20251223-5.htm",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}

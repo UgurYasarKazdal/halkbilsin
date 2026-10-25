@@ -1,0 +1,50 @@
+{
+  "slug": "asgari-ucret-2026",
+  "baslik": "2026 yılı asgari ücretinin belirlenmesi (Karar No: 2025/1)",
+  "tur": "komisyon kararı",
+  "kurum": "Asgari Ücret Tespit Komisyonu",
+  "kaynak_durumu": "tam",
+  "tarihler": {
+    "kabul": {
+      "tur": "tarih",
+      "tarih": "2025-12-23"
+    },
+    "rg_yayim": {
+      "tur": "tarih",
+      "tarih": "2025-12-26",
+      "sayi": "33119"
+    },
+    "yururluk": {
+      "tur": "tarih",
+      "tarih": "2026-01-01",
+      "madde": "kararın 4 üncü bendi"
+    },
+    "gecerlilik": {
+      "tur": "yok"
+    }
+  },
+  "ozet": "Günlük brüt asgari ücret, 1 Ocak – 31 Aralık 2026 tarihleri arasında geçerli olmak üzere 1.101 TL olarak belirlendi; bu, aylık brüt 33.030 TL'ye karşılık geliyor. İşverene verilen asgari ücret desteği 2026'da aylık 1.270 TL olarak sürüyor.",
+  "kimi": [
+    "çalışan",
+    "işveren"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "Resmî Gazete, 26 Aralık 2025, sayı 33119",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2025/12/20251226-6.pdf",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    },
+    {
+      "baslik": "CottGroup mevzuat duyurusu",
+      "url": "https://cottgroup.com/tr/mevzuat/item/asgari-ucret-tutari-aciklandi",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": false
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}

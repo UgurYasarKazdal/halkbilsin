@@ -1,0 +1,43 @@
+{
+  "slug": "trafik-cezalari-7574",
+  "baslik": "7574 sayılı Karayolları Trafik Kanununda Değişiklik Yapılmasına Dair Kanun",
+  "tur": "kanun",
+  "kurum": "TBMM",
+  "kaynak_durumu": "tam",
+  "tarihler": {
+    "kabul": {
+      "tur": "tarih",
+      "tarih": "2026-02-12"
+    },
+    "rg_yayim": {
+      "tur": "tarih",
+      "tarih": "2026-02-27",
+      "sayi": "33181"
+    },
+    "yururluk": {
+      "tur": "tarih",
+      "tarih": "2026-02-27",
+      "madde": "35 (28 inci madde 1/1/2027'de yürürlüğe girer)"
+    },
+    "gecerlilik": {
+      "tur": "yok"
+    }
+  },
+  "ozet": "Trafik idari para cezaları ve bazı sürücü belgesi yaptırımları yeniden düzenlendi. Yerleşim yeri içinde hız sınırını 66 km/s ve daha fazla aşmanın cezası 30.000 TL; kırmızı ışığın bir yıl içinde altıncı kez ihlalinde ceza 80.000 TL. Elektrikli skutere ilişkin 28 inci madde 1 Ocak 2027'de yürürlüğe giriyor.",
+  "kimi": [
+    "sürücü"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "Resmî Gazete, 27 Şubat 2026, sayı 33181",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2026/02/20260227-0.htm",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}

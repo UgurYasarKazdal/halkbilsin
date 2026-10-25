@@ -1,0 +1,41 @@
+{
+  "slug": "meb-okul-oncesi-ilkogretim-yonetmelik-2026",
+  "baslik": "MEB Okul Öncesi Eğitim ve İlköğretim Kurumları Yönetmeliğinde değişiklik",
+  "tur": "yönetmelik değişikliği",
+  "kurum": "Millî Eğitim Bakanlığı",
+  "kaynak_durumu": "tam",
+  "tarihler": {
+    "kabul": {
+      "tur": "bilinmiyor"
+    },
+    "rg_yayim": {
+      "tur": "tarih",
+      "tarih": "2026-07-28",
+      "sayi": "33323"
+    },
+    "yururluk": {
+      "tur": "yayim_tarihinde"
+    },
+    "gecerlilik": {
+      "tur": "yok"
+    }
+  },
+  "ozet": "Okul kayıtlarının adrese dayalı e-Kayıt sistemiyle alınması, ders yılı öncesinde velileri de kapsayan uyum ve ebeveyn programları, okulda güvenlik amaçlı arama ve tutanak usulü ile veli görüşmelerinin okul randevu sistemi üzerinden yapılması düzenlendi.",
+  "kimi": [
+    "veli",
+    "öğrenci"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "Resmî Gazete, 28 Temmuz 2026, sayı 33323",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2026/07/20260728-2.htm",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}

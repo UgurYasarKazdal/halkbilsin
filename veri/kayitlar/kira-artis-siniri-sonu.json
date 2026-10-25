@@ -1,0 +1,50 @@
+{
+  "slug": "kira-artis-siniri-sonu",
+  "baslik": "Konut kiralarında yüzde 25 artış sınırı ve sona ermesi (7456 sayılı Kanun, m.23)",
+  "tur": "kanun",
+  "kurum": "TBMM",
+  "kaynak_durumu": "tam",
+  "tarihler": {
+    "kabul": {
+      "tur": "tarih",
+      "tarih": "2023-07-14"
+    },
+    "rg_yayim": {
+      "tur": "tarih",
+      "tarih": "2023-07-15",
+      "sayi": "32249"
+    },
+    "yururluk": {
+      "tur": "yayim_tarihinde"
+    },
+    "gecerlilik": {
+      "tur": "tarih",
+      "tarih": "2023-07-02",
+      "madde": "TBK geçici madde 2: 2/7/2023 – 1/7/2024 (dahil) arasında yenilenen dönemler"
+    }
+  },
+  "ozet": "Türk Borçlar Kanunu'na eklenen geçici maddeyle, 2 Temmuz 2023 – 1 Temmuz 2024 (dahil) arasında yenilenen konut kira dönemlerinde artış yüzde 25 ile sınırlandı. Bu dönem sona erdi; sonrasında yenilenen dönemlerde üst sınır, TBK m.344 gereği TÜFE'nin on iki aylık ortalamalara göre değişim oranı. Sözleşmede daha düşük bir oran varsa o uygulanır.",
+  "kimi": [
+    "kiracı",
+    "ev sahibi"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "Resmî Gazete, 15 Temmuz 2023, sayı 32249",
+      "url": "https://www.resmigazete.gov.tr/eskiler/2023/07/20230715-2.htm",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": true
+    },
+    {
+      "baslik": "Kadim Hukuk — kira artış oranı (güncel TÜFE kuralı)",
+      "url": "https://kadimhukuk.com.tr/makale/kira-artis-orani-hesaplama/",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": false
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}

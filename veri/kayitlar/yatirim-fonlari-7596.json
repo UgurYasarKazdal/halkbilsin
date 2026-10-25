@@ -1,0 +1,39 @@
+{
+  "slug": "yatirim-fonlari-7596",
+  "baslik": "Tasfiyesine Karar Verilen Bazı Yatırım Fonları Hakkında Kanun (7596)",
+  "tur": "kanun",
+  "kurum": "TBMM",
+  "kaynak_durumu": "yarim",
+  "tarihler": {
+    "kabul": {
+      "tur": "tarih",
+      "tarih": "2026-10-22"
+    },
+    "rg_yayim": {
+      "tur": "henuz_yok"
+    },
+    "yururluk": {
+      "tur": "yayim_tarihinde"
+    },
+    "gecerlilik": {
+      "tur": "bilinmiyor"
+    }
+  },
+  "ozet": "Teklif 22 Ekim 2026'da TBMM Genel Kurulunda kabul edildi; 25 Ekim 2026 itibarıyla Resmî Gazete'de yayımlanmadı. TBMM duyurusuna göre düzenleme, SPK'nın 17 Eylül 2026 tarihli kararlarıyla tasfiyesine karar verilen yatırım fonlarının tasfiyesine ve fon varlıklarının geri kazanılmasına ilişkin. Nihai kanun metni henüz okunmadı.",
+  "kimi": [
+    "yatırım fonu sahibi"
+  ],
+  "kaynaklar": [
+    {
+      "baslik": "TBMM duyurusu: teklifin Genel Kurulda kabulü (22/10/2026)",
+      "url": "https://www.tbmm.gov.tr/Haber/Detay?Id=9ca4efb9-a362-4259-8cac-01a164acfee3",
+      "okunma_tarihi": "2026-10-25",
+      "birincil": false
+    }
+  ],
+  "ilk_yayim": "2026-10-25",
+  "ikinci_kontrol": {
+    "tarih": "2026-10-25"
+  },
+  "yayinda": true
+}

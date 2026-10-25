@@ -340,6 +340,69 @@ def kayit_govdesi(k):
     return "\n".join(out)
 
 
+
+def deneyin_govdesi(kayitlar):
+    """Ana sayfadaki 'Deneyin' bölümünün içini üretir (yalnızca yayında olanlardan)."""
+    E = html.escape
+    yay = [k for k in kayitlar if k.get("yayinda") is True]
+    if not yay:
+        return ('<h2 id="deneyin-baslik">Deneyin</h2>\n'
+                '<p class="lead narrow">Henüz yayımlanmış kayıt yok; ilk kayıtlar hazırlanıyor.</p>')
+
+    def rg_metin(k):
+        v = k["tarihler"]["rg_yayim"]
+        if v["tur"] == "tarih":
+            return "Resmî Gazete: " + tarih_yaz(v["tarih"])
+        return "Resmî Gazete: " + TUR_METNI[v["tur"]].lower()
+
+    def anahtar(k):
+        v = k["tarihler"]["rg_yayim"]
+        return v["tarih"] if v["tur"] == "tarih" else "9999-99-99"
+
+    sirali = sorted(yay, key=anahtar, reverse=True)
+    kimiler = sorted({x for k in yay for x in k.get("kimi", [])})
+    chips = "\n".join(
+        f'<button type="button" class="chip secim" data-kimi="{E(x)}" aria-pressed="false">{E(x)}</button>'
+        for x in kimiler)
+    li = []
+    for k in sirali:
+        s = k["kaynak_durumu"]
+        li.append(
+            f'<li data-kimi="{E("|".join(k.get("kimi", [])))}">'
+            f'<h3><a href="/kayitlar/{E(k["slug"])}.html">{E(k["baslik"])}</a></h3>'
+            f'<p class="st"><span class="mk {s}" aria-hidden="true"></span>{E(DURUMLAR[s])}'
+            f'<span class="note"> · {E(rg_metin(k))}</span></p></li>')
+    n = len(sirali)
+    return ('<h2 id="deneyin-baslik">Deneyin</h2>\n'
+            '<p class="lead narrow">Durumunuzu seçin; kayıtlar ona göre süzülsün. '
+            'Seçiminiz tarayıcınızda kalır, hiçbir yere gönderilmez ve kaydedilmez.</p>\n'
+            '<div class="chips" role="group" aria-label="Duruma göre süz">\n' + chips + '\n</div>\n'
+            '<ul class="kayit-listesi deneyin-liste">\n' + "\n".join(li) + '\n</ul>\n'
+            '<p id="deneyin-sayac" class="note" role="status" aria-live="polite"></p>\n'
+            f'<p class="note">Şu an {n} kayıt yayında; kapsam henüz dar. '
+            '<a href="/kayitlar/">Tüm kayıtlar</a>.</p>')
+
+
+DENEYIN_BASLA = "<!-- deneyin:basla -->"
+DENEYIN_BITIR = "<!-- deneyin:bitir -->"
+
+
+def deneyin_yerlestir(kok, kayitlar, yaz=True):
+    """index.html'deki işaretçilerin arasını doldurur; işaretçi yoksa dokunmaz."""
+    yol = kok / "index.html"
+    if not yol.exists():
+        return False
+    s = yol.read_text(encoding="utf-8")
+    if DENEYIN_BASLA not in s or DENEYIN_BITIR not in s:
+        return False
+    bas = s.index(DENEYIN_BASLA) + len(DENEYIN_BASLA)
+    bit = s.index(DENEYIN_BITIR)
+    yeni = s[:bas] + "\n" + deneyin_govdesi(kayitlar) + "\n" + s[bit:]
+    if yaz and yeni != s:
+        yol.write_text(yeni, encoding="utf-8")
+    return True
+
+
 def liste_govdesi(kayitlar):
     E = html.escape
     if not kayitlar:
@@ -438,6 +501,7 @@ def uret(kok, yaz=True):
         if p.name not in beklenen:
             p.unlink()  # yayından kaldırılan kayıt sayfası
     (kok / "sitemap.xml").write_text(sitemap(yayindakiler), encoding="utf-8")
+    deneyin_yerlestir(kok, yayindakiler, yaz=yaz)
     return [], yayindakiler, taslaklar
 
 

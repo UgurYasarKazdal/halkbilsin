@@ -41,6 +41,11 @@ Model seçimi insan kontrolünün yerini tutmaz.
 
 **Kötü gidenler:** Instagram kırpmasına bakmadan kare görsel üretmek; "işaret var" ve "yalnızca resmî kayıttaki gerçekler" gibi taahhütleri erken yazmak; ilk anda dış bağımlılığı (GitHub'dan yazı tipi indirme) denemek; tek seferde fazla şeyi sormadan varsaymak (X/Instagram bağlantılarını kullanıcı adı doğrulanmadan sayfaya eklemek).
 
+- Resmî Gazete'ye bu ortamdan WebFetch ile erişilemiyor ama **masaüstü uygulamasının tarayıcı paneliyle erişilebiliyor**; birincil metin teyidi artık oturum içinde yapılabilir.
+- İkincil kaynak rakamları birincil metinle çelişebiliyor: 2026 günlük asgari ücret haberlerde "1.100 TL", Resmî Gazete'de **1.101 TL**. Rakam, RG metni okunmadan yayımlanmaz.
+- Ana sayfadaki kart elle yazılıdır; 7596 kaydı değişirse kartın da aynı commit'te güncellenmesi gerekir (drift riski).
+- İlk altı kaydın birincil okuması ve ikinci kontrolü, Uğur'un talimatıyla aynı oturumda Claude tarafından yapıldı; Uğur'un ara sıra rastgele bir kaydı RG'den kendisi doğrulaması önerilir.
+
 ## Açık maddeler [?]
 
 7596 sayılı Kanun'un Resmî Gazete durumu ve nihai metni · "çerez yok" ifadesinin barındırıcı tarafı · TÜRKPATENT benzer marka taraması · çağrışım testi · hesap bağlantılarının tıklama kontrolü · gizlilik metninin hukuki incelemesi · kayıt içeriği lisansı.

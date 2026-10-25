@@ -17,4 +17,4 @@ jobs:
       - name: Üretilen sayfalar güncel mi?
         run: |
           python3 araclar/uret.py
-          git diff --exit-code -- kayitlar sitemap.xml
+          git diff --exit-code -- kayitlar sitemap.xml index.html
