@@ -395,7 +395,7 @@ def deneyin_govdesi(kayitlar):
             '<ul class="kayit-listesi deneyin-liste">\n' + "\n".join(li) + '\n</ul>\n'
             '<p id="deneyin-sayac" class="note" role="status" aria-live="polite"></p>\n'
             f'<p class="note">Şu an {n} kayıt yayında; kapsam henüz dar. '
-            '<a href="/kayitlar/">Tüm kayıtlar</a>.</p>')
+            '<a href="/kayitlar/">Tüm kayıtlar</a> · <a href="/yontem.html#kapsam">Neyi kapsıyoruz?</a></p>')
 
 
 def varliklari_surumle(kok, yaz=True):
